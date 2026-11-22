@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BioMaint IA</title><link rel="icon" href="assets/logo.png">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#04111c">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="BioMaint IA">
+<meta name="description" content="BioMaint IA — maintenance prédictive des équipements biomédicaux (GMAO)">
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+<script src="intro.js"></script>
+<header>
+  <div id="sysbar"><b>Système de maintenance</b><span class="sep">|</span><time id="clock"></time></div>
+  <img src="assets/logo.png" width="34" height="34" alt="">
+  <h1>BioMaint IA</h1><small id="by"></small>
+  <button id="bell" type="button" aria-label="Notifications">🔔<i class="bd" id="bellN" hidden></i></button>
+</header>
+<div id="banner" hidden>Hors ligne : les recherches IA seront relancées à la reconnexion.</div>
+<main></main>
+<nav>
+  <button data-tab="dash"><em class="ico">◈<i class="bd" id="tabN" hidden></i></em><span>Accueil</span></button>
+  <button data-tab="equip">▣<span>Équipements</span></button>
+  <button data-tab="interv">✚<span>Interventions</span></button>
+  <button data-tab="manuals">⌕<span>Manuels IA</span></button>
+  <button data-tab="settings">⚙<span>Réglages</span></button>
+</nav>
+<dialog id="dlg"></dialog>
+<div id="auth"><form><img src="assets/logo.png" width="96" height="96" alt="BioMaint IA">
+<h2 id="atitle"></h2><input type="password" id="pin" autocomplete="off" autofocus><button>Ouvrir</button><p id="amsg"></p></form></div>
+<script src="jspdf.umd.min.js"></script><script src="pdf.min.js"></script><script src="bridge-android.js"></script><script src="renderer.js"></script><script src="web-extra.js"></script>
+<script>
+/* Horloge de la barre du haut (date et heure en temps réel) */
+(function(){var c=document.getElementById('clock');if(!c)return;
+var f=new Intl.DateTimeFormat('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+function tick(){var d=new Date();c.textContent=f.format(d).replace(' ',' à ').replace(',','');c.setAttribute('datetime',d.toISOString())}
+tick();setInterval(tick,1000)})();
+</script>
+</body></html>
